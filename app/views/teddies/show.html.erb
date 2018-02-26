@@ -10,7 +10,12 @@
     </div>
     <div class="col-sm-12 col-md-6">
       <p>Some awesome description of our amazing teddy.</p>
-      <p>$$$</p>
+      <p>Amount: <%= humanized_money_with_symbol(@teddy.price) %></p>
     </div>
+    <%= form_tag orders_path do %>
+      <%= hidden_field_tag 'teddy_id', @teddy.id %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
   </div>
+
 </div>
